@@ -1,1 +1,1053 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo Interativo - Guilherme Silva Vanderley</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 10px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f7fb;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 0;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        
+        .profile-info p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+        
+        .stats {
+            display: flex;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+        
+        /* Navigation */
+        .nav-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            overflow-x: auto;
+            padding: 0 15px;
+            scrollbar-width: none;
+        }
+        
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-item {
+            padding: 15px 20px;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary);
+        }
+        
+        .nav-item.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        /* Section styling */
+        .section {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* Cards */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-item {
+            padding: 10px 0;
+            border-bottom: 1px dashed var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .card-item:last-child {
+            border-bottom: none;
+        }
+        
+        .card-label {
+            font-weight: 500;
+            color: var(--gray);
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--light-gray);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .timeline-content {
+            background: var(--light);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--primary);
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .timeline-subtitle {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        /* Charts */
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .chart-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .chart-title {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* Accordion */
+        .accordion {
+            margin-top: 20px;
+        }
+        
+        .accordion-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .accordion-header {
+            background: var(--light);
+            padding: 18px 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .accordion-header:hover {
+            background: #e2e8f0;
+        }
+        
+        .accordion-icon {
+            transition: var(--transition);
+        }
+        
+        .accordion-content {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .accordion-item.active .accordion-content {
+            padding: 20px;
+            max-height: 1000px;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .publication-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--light-gray);
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .publication-details {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .lattes-link {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 20px 0;
+            transition: var(--transition);
+        }
+        
+        .lattes-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile {
+                flex-direction: column;
+            }
+            
+            .stats {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile">
+                    <div class="profile-img">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="profile-info">
+                        <h1>Guilherme Silva Vanderley</h1>
+                        <p>Professor de Língua Portuguesa e Literatura</p>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Araguaína, TO, Brasil</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>ID Lattes: 7963365405696203</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Última atualização: 16/03/2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">12+</div>
+                        <div class="stat-label">Publicações</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Eventos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Prêmios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <!-- Navigation -->
+    <div class="container">
+        <div class="nav-container">
+            <nav>
+                <div class="nav-item active" data-target="about">Sobre</div>
+                <div class="nav-item" data-target="education">Formação</div>
+                <div class="nav-item" data-target="experience">Experiência</div>
+                <div class="nav-item" data-target="skills">Habilidades</div>
+                <div class="nav-item" data-target="publications">Produções</div>
+                <div class="nav-item" data-target="awards">Prêmios</div>
+                <div class="nav-item" data-target="events">Eventos</div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-user"></i> Sobre</h2>
+            </div>
+            <div class="content">
+                <p>Professor de Língua Portuguesa e Literatura, graduado pela Universidade Federal do Norte do Tocantins (UFNT). Atualmente atua como professor na mesma instituição, com experiência em pesquisa acadêmica e programas como PIBIC e Residência Pedagógica.</p>
+                <p>Publicou poesias e contos em diversas antologias e mantém o blog "Em Letras" para divulgação de literatura popular. Desenvolveu pesquisa premiada sobre autoria em textos dissertativo-argumentativos de alunos do ensino médio público em Araguaína/TO.</p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Graduação em Letras - Língua Portuguesa e Literaturas</h3>
+                        <div class="timeline-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                        <p>TCC: A constituição de autoria em textos dissertativo-argumentativos de alunos do ensino médio público em Araguaína/TO.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2019</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Ensino Médio</h3>
+                        <div class="timeline-subtitle">Escola Estadual João XXIII (EEJ)</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2016</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Ensino Fundamental</h3>
+                        <div class="timeline-subtitle">Escola Municipal Teodoro Sampaio (BHTS)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">Formação Complementar</h3>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">Cursos de Extensão</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Escrita Acadêmica</span>
+                            <span>UNITINS (12h)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Português Instrumental</span>
+                            <span>UFNT (80h)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Leitura Acadêmica</span>
+                            <span>UFNT (30h)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Análise de Discurso</span>
+                            <span>UFT (18h)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Minicursos</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Reflexões sobre sujeito e cultura</span>
+                            <span>UFNT (10h)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Game-based learning</span>
+                            <span>UFNT (10h)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Ensino de língua portuguesa</span>
+                            <span>UFNT (10h)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Variação linguística</span>
+                            <span>UFNT (10h)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">Professor de Língua Portuguesa</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Instituição</span>
+                            <span>UFNT</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Período</span>
+                            <span>2024 - Atual</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Carga Horária</span>
+                            <span>40h semanais</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Professor de Língua Portuguesa</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Instituição</span>
+                            <span>Edicionário Cristo Rei (ICR)</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Período</span>
+                            <span>2023</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Carga Horária</span>
+                            <span>20h semanais</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Informações</span>
+                            <span>Ensino Fundamental</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Residência Pedagógica</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Instituição</span>
+                            <span>UFNT</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Período</span>
+                            <span>2022 - 2023</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Carga Horária</span>
+                            <span>6h semanais</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Tipo</span>
+                            <span>Voluntário</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">PIBIC</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Instituição</span>
+                            <span>UFNT</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Período</span>
+                            <span>2022 - 2023</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Carga Horária</span>
+                            <span>6h semanais</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Tipo</span>
+                            <span>Bolsista</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-chart-bar"></i> Habilidades</h2>
+            </div>
+            <div class="chart-container">
+                <div class="chart-card">
+                    <h3 class="chart-title">Idiomas</h3>
+                    <canvas id="languagesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3 class="chart-title">Áreas de Conhecimento</h3>
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-book"></i> Produções Acadêmicas</h2>
+            </div>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Capítulos de Livros Publicados (2)</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-title">Anuário de Poetas e Escritores do Tocantins 2022</div>
+                            <div class="publication-details">Editora Veloso, 2022</div>
+                            <div class="publication-details">Páginas: 169-178</div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-title">Poesia na Escola</div>
+                            <div class="publication-details">Palavra é Arte, 2022</div>
+                            <div class="publication-details">Páginas: 13-19</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Trabalhos Completos em Anais (1)</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-title">O Desenvolvimento Docente em Meio à Pandemia: Um Relato de Experiência</div>
+                            <div class="publication-details">VIII Seminário Integrado de Ensino, Pesquisa, Extensão e Cultura (SIEPEC), 2022</div>
+                            <div class="publication-details">Coautor: T. V. S. Braga</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Resumos em Anais (1)</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-title">A Constituição da Função-Autor em Produções Textuais de Alunos</div>
+                            <div class="publication-details">Fazendo Ciência na Graduação, 2023</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">
+                        <span>Produção Técnica (3)</span>
+                        <i class="fas fa-chevron-down accordion-icon"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="publication-item">
+                            <div class="publication-title">Residência Pedagógica - Letras UFNT</div>
+                            <div class="publication-details">Blog (2022)</div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-title">PIBID Letras UFNT</div>
+                            <div class="publication-details">Site (2021)</div>
+                        </div>
+                        <div class="publication-item">
+                            <div class="publication-title">Em Letras</div>
+                            <div class="publication-details">Blog sobre Literatura Popular (2020)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-trophy"></i> Prêmios e Títulos</h2>
+            </div>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-header">10º Lugar - Ciências Humanas, Sociais Aplicadas, Letras e Artes</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Evento</span>
+                            <span>II Seminário Integrado Ciência e Sociedade</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Ano</span>
+                            <span>2023</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Programa</span>
+                            <span>PIBIC UFNT</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">Aprovação em Concurso Público</div>
+                    <div class="card-body">
+                        <div class="card-item">
+                            <span class="card-label">Cargo</span>
+                            <span>Regente de Língua Portuguesa</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Instituição</span>
+                            <span>Secretaria da Educação do Estado do Tocantins</span>
+                        </div>
+                        <div class="card-item">
+                            <span class="card-label">Ano</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="section" style="display: none;">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Participação em Eventos</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">XV Semana Acadêmica do Curso de Letras Linguística e Ensino</h3>
+                        <div class="timeline-subtitle">Seminário</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2023</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Fazendo Ciência na Graduação</h3>
+                        <div class="timeline-subtitle">Seminário</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">II SIESCLL - Seminário Integrado de Estágios Supervisionados</h3>
+                        <div class="timeline-subtitle">Seminário</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">I Simpósio Internacional Entre Letras UENA/UFNT</h3>
+                        <div class="timeline-subtitle">Simpósio</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2020</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">II FLUA - Feira Literária da UFT de Araguaína</h3>
+                        <div class="timeline-subtitle">Feira Literária</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Guilherme Silva Vanderley</h3>
+                <p>Professor de Língua Portuguesa e Literatura</p>
+                <a href="http://lattes.cmpa.br/7963365405696203" class="lattes-link" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Acessar Currículo Lattes
+                </a>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:contato@exemplo.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">© 2025 Currículo Interativo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const sections = document.querySelectorAll('.section');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    
+                    // Update active nav item
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show target section
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                        if (section.id === target) {
+                            section.style.display = 'block';
+                        }
+                    });
+                });
+            });
+            
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentNode;
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Charts initialization
+            // Languages Chart
+            const languagesCtx = document.getElementById('languagesChart').getContext('2d');
+            const languagesChart = new Chart(languagesCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Compreensão', 'Fala', 'Leitura', 'Escrita'],
+                    datasets: [
+                        {
+                            label: 'Português',
+                            data: [100, 100, 100, 100],
+                            backgroundColor: 'rgba(58, 134, 255, 0.2)',
+                            borderColor: 'rgba(58, 134, 255, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(58, 134, 255, 1)'
+                        },
+                        {
+                            label: 'Inglês',
+                            data: [70, 30, 70, 30],
+                            backgroundColor: 'rgba(131, 56, 236, 0.2)',
+                            borderColor: 'rgba(131, 56, 236, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(131, 56, 236, 1)'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+            
+            // Skills Chart
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            const skillsChart = new Chart(skillsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ensino de Português', 'Literatura', 'Escrita Acadêmica', 'Pesquisa', 'Tecnologia Educacional'],
+                    datasets: [{
+                        label: 'Nível de Proficiência',
+                        data: [95, 90, 85, 80, 70],
+                        backgroundColor: [
+                            'rgba(58, 134, 255, 0.7)',
+                            'rgba(131, 56, 236, 0.7)',
+                            'rgba(255, 0, 110, 0.7)',
+                            'rgba(106, 76, 147, 0.7)',
+                            'rgba(41, 128, 185, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(58, 134, 255, 1)',
+                            'rgba(131, 56, 236, 1)',
+                            'rgba(255, 0, 110, 1)',
+                            'rgba(106, 76, 147, 1)',
+                            'rgba(41, 128, 185, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
