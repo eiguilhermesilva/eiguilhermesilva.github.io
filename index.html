@@ -204,34 +204,34 @@
             color: var(--primary);
         }
         
-        /* Menu Mobile */
+        /* Menu Mobile - Correções */
         .mobile-menu-container {
             display: none;
+            width: 100%;
             position: relative;
         }
         
         .mobile-menu-btn {
             display: none;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
-            border-radius: 4px;
-            padding: 12px 15px;
-            font-size: 1.2rem;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 101;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
         
         .mobile-menu {
             display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
+            width: 100%;
             background: white;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-shadow: var(--shadow);
@@ -253,6 +253,7 @@
             cursor: pointer;
             border-bottom: 1px solid var(--light-gray);
             transition: var(--transition);
+            text-align: center;
         }
         
         .mobile-menu-item:hover, .mobile-menu-item.active {
@@ -1012,13 +1013,14 @@
                 display: flex;
             }
             
-            /* Menu Mobile */
+            /* Menu Mobile - Correções */
             .mobile-menu-container {
                 display: block;
             }
             
             .mobile-menu-btn {
-                display: block;
+                display: flex;
+                max-width: 100%;
             }
             
             nav {
@@ -1026,11 +1028,10 @@
             }
             
             .mobile-menu {
-                display: none;
-            }
-            
-            .mobile-menu.active {
-                display: block;
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
             }
         }
         
@@ -1084,9 +1085,8 @@
             }
             
             .mobile-menu-btn {
-                top: 5px;
-                right: 5px;
-                padding: 10px 12px;
+                padding: 12px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -1134,7 +1134,7 @@
             <div class="nav-container">
                 <div class="mobile-menu-container">
                     <button class="mobile-menu-btn" id="mobileMenuBtn">
-                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-bars"></i> Menu
                     </button>
                     <div class="mobile-menu" id="mobileMenu">
                         <div class="mobile-menu-item active" data-target="about">Sobre</div>
@@ -1859,7 +1859,7 @@
             
             // Fechar menu ao clicar fora
             document.addEventListener('click', function(e) {
-                if (!mobileMenu.contains(e.target) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
                     mobileMenu.classList.remove('active');
                 }
             });
