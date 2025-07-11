@@ -1,0 +1,2607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - Guilherme Silva Vanderley</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Light theme variables */
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 10px;
+            --shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            
+            /* Backgrounds */
+            --bg-body: linear-gradient(135deg, #f5f7fa, #e4e7f1);
+            --bg-header: linear-gradient(135deg, var(--primary), var(--secondary));
+            --bg-section: #ffffff;
+            --bg-card: #f8f9fa;
+            --bg-research-group: linear-gradient(135deg, #4a00e0, #8e2de2);
+            --bg-nav: #ffffff;
+            --bg-footer: #212529;
+            --text-color: #212529;
+            --text-light: #ffffff;
+            --text-gray: #6c757d;
+            
+            /* Dark mode toggle */
+            --toggle-bg: #ffffff;
+            --toggle-icon: #ffd43b;
+            --toggle-border: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Dark theme variables */
+        .dark-mode {
+            --primary: #6aa1ff;
+            --secondary: #9a5ffa;
+            --accent: #ff4d94;
+            --light: #1a1a1a;
+            --dark: #e9ecef;
+            --gray: #a0a0a0;
+            --light-gray: #333333;
+            
+            --bg-body: linear-gradient(135deg, #0f172a, #1e293b);
+            --bg-header: linear-gradient(135deg, #2d3a5c, #4a2d7c);
+            --bg-section: #1e293b;
+            --bg-card: #1a1a1a;
+            --bg-research-group: linear-gradient(135deg, #2d1a5c, #4a2d7c);
+            --bg-nav: #1e293b;
+            --bg-footer: #0f172a;
+            --text-color: #e9ecef;
+            --text-light: #e9ecef;
+            --text-gray: #a0a0a0;
+            
+            --toggle-bg: #1e293b;
+            --toggle-icon: #ffd43b;
+            --toggle-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        html, body {
+            height: 100%;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg-body);
+            color: var(--text-color);
+            line-height: 1.5;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding-bottom: 30px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: var(--bg-header);
+            color: var(--text-light);
+            padding: 50px 0;
+            border-radius: 0 !important;
+            margin-bottom: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+        }
+        
+        .header-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+        
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .profile-info p {
+            font-size: 1.2rem;
+            opacity: 0.90;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            opacity: 0.92;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 8px 15px;
+            border-radius: 30px;
+        }
+        
+        .nav-container {
+            background: var(--bg-nav);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 10px;
+            margin-bottom: 10px;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            overflow-x: auto;
+            padding: 0 10px;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            justify-content: center;
+        }
+        
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-item {
+            padding: 16px 18px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.90rem;
+            text-align: center;
+            flex: 1;
+            min-width: max-content;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            color: var(--primary);
+        }
+        
+        .nav-item.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 18px;
+            right: 18px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .mobile-indicator {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, var(--bg-nav) 100%);
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: var(--primary);
+        }
+        
+        .mobile-menu-container {
+            display: none;
+            width: 100%;
+            position: relative;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: var(--bg-header);
+            color: var(--text-light);
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .mobile-menu {
+            display: none;
+            width: 100%;
+            background: var(--bg-nav);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: var(--shadow);
+            z-index: 100;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+            max-height: 500px;
+        }
+        
+        .mobile-menu-item {
+            padding: 15px 20px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            border-bottom: 1px solid var(--light-gray);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .mobile-menu-item:hover, .mobile-menu-item.active {
+            color: var(--primary);
+            background: rgba(58, 134, 255, 0.05);
+        }
+        
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .section {
+            background: var(--bg-section);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            padding: 18px 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-item {
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .card-item:last-child {
+            border-bottom: none;
+        }
+        
+        .card-label {
+            font-weight: 500;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .experience-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            background: rgba(58, 134, 255, 0.05);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .experience-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        .experience-period {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .experience-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .experience-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        
+        .experience-detail i {
+            color: var(--primary);
+        }
+        
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(131, 56, 236, 0.05);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .award-icon {
+            background: var(--secondary);
+            color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .award-content {
+            flex: 1;
+        }
+        
+        .award-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+        }
+        
+        .award-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .award-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        
+        .award-detail i {
+            color: var(--secondary);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 25px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--light-gray);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 35px;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-date {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(58, 134, 255, 0.3);
+        }
+        
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-color);
+            font-size: 1.2rem;
+        }
+        
+        .timeline-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+        
+        .chart-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .chart-card {
+            background: var(--bg-section);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .chart-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        
+        .accordion {
+            margin-top: 20px;
+        }
+        
+        .accordion-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 18px;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .accordion-header {
+            background: var(--bg-card);
+            padding: 20px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        
+        .accordion-header:hover {
+            background: var(--light-gray);
+        }
+        
+        .accordion-icon {
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        .accordion-content {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            background: var(--bg-card);
+        }
+        
+        .accordion-item.active .accordion-content {
+            padding: 25px;
+            max-height: 1000px;
+        }
+        
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .publication-item {
+            padding: 18px 0;
+            border-bottom: 1px dashed var(--light-gray);
+            color: var(--text-color);
+        }
+        
+        .publication-item:last-child {
+            border-bottom: none;
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+        
+        .publication-details {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .research-group {
+            background: var(--bg-research-group);
+            color: var(--text-light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-top: 25px;
+        }
+        
+        .research-header {
+            padding: 25px 30px;
+            background: rgba(0, 0, 0, 0.15);
+        }
+        
+        .research-body {
+            padding: 30px;
+        }
+        
+        .research-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .research-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .research-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .research-detail {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--border-radius);
+        }
+        
+        .research-detail h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-form-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--bg-card);
+            color: var(--text-color);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(131, 56, 236, 0.3);
+        }
+        
+        .float-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .float-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .float-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .share-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-light);
+        }
+        
+        .back-to-top {
+            background: var(--bg-section);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .share-options {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background: var(--bg-section);
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            display: none;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+            width: 220px;
+        }
+        
+        .share-options.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .share-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: var(--transition);
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .share-option:hover {
+            background: var(--light-gray);
+        }
+        
+        .share-option.linkedin {
+            color: #0a66c2;
+        }
+        
+        .share-option.twitter {
+            color: #1da1f2;
+        }
+        
+        .share-option.facebook {
+            color: #1877f2;
+        }
+        
+        .share-option.whatsapp {
+            color: #25d366;
+        }
+        
+        .share-option.email {
+            color: var(--accent);
+        }
+        
+        .share-option i {
+            font-size: 1.4rem;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        footer {
+            background: var(--bg-footer);
+            color: var(--text-light);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 !important;
+            margin-top: auto;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .lattes-link {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 25px 0;
+            transition: var(--transition);
+            font-size: 1.05rem;
+        }
+        
+        .lattes-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(131, 56, 236, 0.3);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            transition: var(--transition);
+            font-size: 1.2rem;
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .justified-text {
+            text-align: justify;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+        
+        .justified-text p {
+            margin-bottom: 15px;
+        }
+        
+        /* Estilo aprimorado para a mensagem de agradecimento */
+        .thank-you-message {
+            background: rgba(58, 134, 255, 0.1);
+            border-radius: var(--border-radius);
+            padding: 0;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            margin-top: 0;
+            margin-bottom: 0;
+            color: var(--text-color);
+        }
+        
+        .thank-you-message.show {
+            opacity: 1;
+            height: auto;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 0;
+        }
+        
+        .thank-you-message i {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .thank-you-message h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Dark mode toggle button */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-toggle i {
+            font-size: 1.4rem;
+            color: var(--toggle-icon);
+            transition: var(--transition);
+        }
+        
+        /* Apenas o sol é visível no modo claro */
+        .theme-toggle .fa-sun {
+            display: block;
+        }
+        
+        .theme-toggle .fa-moon {
+            display: none;
+        }
+        
+        /* Apenas a lua é visível no modo escuro */
+        .dark-mode .theme-toggle .fa-sun {
+            display: none;
+        }
+        
+        .dark-mode .theme-toggle .fa-moon {
+            display: block;
+        }
+        
+        /* ESTILOS PARA PORTFÓLIO COM LINKS */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .portfolio-item {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 0px solid var(--light-gray);
+            box-shadow: var(--shadow);
+            position: relative;
+            height: 350px;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-link-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(58, 134, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-link-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-link-btn {
+            background: var(--text-light);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .portfolio-link-btn:hover {
+            background: var(--secondary);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+        
+        .portfolio-content {
+            padding: 20px;
+            position: relative;
+        }
+        
+        .portfolio-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .portfolio-title-text {
+            flex: 1;
+            text-decoration: none;
+        }
+        
+        .portfolio-category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(58, 134, 255, 0.8);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.70rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+        
+        .portfolio-description {
+            margin-top: 0px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            line-height: 1.25;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: 10px;
+        }
+        
+        .portfolio-tag {
+            background: var(--light-gray);
+            color: var(--text-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.6rem;
+        }
+        
+        .portfolio-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .filter-btn {
+            padding: 8px 15px;
+            background: var(--bg-card);
+            border: 0px solid var(--light-gray);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.8rem;
+            color: var(--text-color);
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: var(--text-light);
+            border-color: var(--primary);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .section {
+                padding: 25px;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline-date {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 30px 0;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+            
+            .profile-img {
+                width: 140px;
+                height: 140px;
+                margin: 0 auto;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .contact-item {
+                justify-content: center;
+                width: 100%;
+            }
+            
+            .nav-item {
+                padding: 15px 18px;
+                font-size: 0.9rem;
+                flex: none;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                padding-left: 45px;
+            }
+            
+            .timeline-date {
+                width: 36px;
+                height: 36px;
+                font-size: 0.85rem;
+            }
+            
+            .timeline-content {
+                padding: 18px;
+            }
+            
+            .timeline-title {
+                font-size: 1.1rem;
+            }
+            
+            .research-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .research-detail {
+                padding: 15px;
+            }
+            
+            .float-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .float-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .share-options {
+                bottom: 120px;
+                right: 20px;
+                width: 200px;
+            }
+            
+            .mobile-indicator {
+                display: flex;
+            }
+            
+            .mobile-menu-container {
+                display: block;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                max-width: 100%;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+            
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 40px;
+                height: 40px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .portfolio-item {
+                height: 320px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .mobile-menu-container {
+                display: none;
+            }
+            
+            nav {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .nav-item {
+                padding: 12px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .profile-info h1 {
+                font-size: 2.2rem;
+            }
+            
+            .profile-info p {
+                font-size: 1.1rem;
+            }
+            
+            .float-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .float-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .share-options {
+                bottom: 110px;
+                right: 15px;
+                width: 180px;
+            }
+            
+            .mobile-menu-btn {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+        }
+      
+      .publication-title a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.publication-title a:hover {
+    color: var(--secondary);
+}
+    </style>
+</head>
+<body>
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="http://servicosweb.cnpq.br/wspessoa/servletrecuperafoto?tipo=1&id=K9737766P7" alt="Guilherme Silva Vanderley">
+                        </div>
+                        <div class="profile-info">
+                            <h1>Guilherme Silva Vanderley</h1>
+                            <p>Professor de Língua Portuguesa e Literaturas</p>
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Araguaína, TO, Brasil</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-id-card"></i>
+                                    <span>ID Lattes: 7963365405696203</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Idade: <span id="age">23</span> anos</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Última atualização: 03/07/2025</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="nav-container">
+                <div class="mobile-menu-container">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i> Menu
+                    </button>
+                    <div class="mobile-menu" id="mobileMenu">
+                        <div class="mobile-menu-item active" data-target="about">Sobre</div>
+                        <div class="mobile-menu-item" data-target="education">Formação</div>
+                        <div class="mobile-menu-item" data-target="experience">Experiência</div>
+                        <div class="mobile-menu-item" data-target="skills">Habilidades</div>
+                        <div class="mobile-menu-item" data-target="portfolio">Portfólio</div>
+                        <div class="mobile-menu-item" data-target="publications">Produções</div>
+                        <div class="mobile-menu-item" data-target="awards">Prêmios</div>
+                        <div class="mobile-menu-item" data-target="events">Eventos</div>
+                        <div class="mobile-menu-item" data-target="research">Grupo de Estudos</div>
+                        <div class="mobile-menu-item" data-target="contact">Contato</div>
+                    </div>
+                </div>
+                <nav id="mainNav">
+                    <div class="mobile-indicator">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                    <div class="nav-item active" data-target="about">Sobre</div>
+                    <div class="nav-item" data-target="education">Formação</div>
+                    <div class="nav-item" data-target="experience">Experiência</div>
+                    <div class="nav-item" data-target="skills">Habilidades</div>
+                    <div class="nav-item" data-target="portfolio">Portfólio</div>
+                    <div class="nav-item" data-target="publications">Produções</div>
+                    <div class="nav-item" data-target="awards">Prêmios</div>
+                    <div class="nav-item" data-target="events">Eventos</div>
+                    <div class="nav-item" data-target="research">Grupo de Estudos</div>
+                    <div class="nav-item" data-target="contact">Contato</div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="container">
+            <section id="about" class="section">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-user"></i> Sobre</h2>
+                </div>
+                <div class="content justified-text">
+                    <p>Professor de Língua Portuguesa e Literaturas, graduado pela Universidade Federal do Norte do Tocantins (UFNT), Centro de Ciências Integradas (CCI). Concursado pela Secretaria do Estado do Tocantins (SEDUC/TO), como professor regente de Língua Portuguesa.</p>
+                    
+                    <p>Na graduação, atuou como aluno bolsista no Programa Institucional de Bolsas de Iniciação à Docência (PIBID), e como aluno voluntário no Programa de Residência Pedagógica (PRP), ambos executados pela Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES). Além disso, desenvolveu pesquisa de 2022 a 2023 no Programa Institucional de Bolsas de Iniciação Científica (PIBIC), a qual foi premiada com o 1º Lugar, na categoria "Ciências Humanas, Sociais Aplicadas, Letras e Artes", no evento TEIA - II Seminário Integrado Ciência e Sociedade.</p>
+                    
+                    <p>Em literatura, publicou cordel, poesia livre e crônicas no "Anuário de Poetas e Escritores do Tocantins", pela Editora Veloso. Ademais, publicou poesias livres no projeto "Poesia na Escola", pela Editora Palavra é Arte. Em 2023, publicou crônicas na obra "Narrações Pandêmicas e outras prosas" pela Editora Universitária da UFNT. Não obstante, é fundador e autor do site Em Letras, no qual divulga a literatura popular por meio de crônicas, cordéis, contos e resenhas.</p>
+                    
+                    <p>Desenvolveu, como Trabalho de Conclusão de Curso (TCC), pesquisa acerca da constituição de autoria em textos dissertativo-argumentativos de alunos do ensino médio público, em Araguaína/TO.</p>
+                    
+                    <p><strong>Áreas de atuação:</strong> Linguística, Letras e Artes - Análise de Discurso (AD).</p>
+                </div>
+            </section>
+
+            <section id="education" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Formação Acadêmica</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Mestrado Profissional em Letras (PROFLETRAS)</h3>
+                            <div class="timeline-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                            <p>Em andamento. Orientador: João de Deus Leite</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Graduação em Letras - Língua Portuguesa e Literaturas</h3>
+                            <div class="timeline-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                            <p>TCC: A (NÃO) CONSTITUIÇÃO DA FUNÇÃO-AUTOR EM PRODUÇÕES TEXTUAIS DE ALUNOS DO ENSINO MEDIO PÚBLICO EM ARAGUAINA/TO</p>
+                            <p>Orientador: João de Deus Leite</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Educação Básica - Ensino Médio</h3>
+                            <div class="timeline-subtitle">Escola Estadual João XXIII (EEJ)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2016</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Educação Básica - Ensino Fundamental</h3>
+                            <div class="timeline-subtitle">Escola Municipal Teodoro Sá (EMTS)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 30px; margin-bottom: 20px; color: var(--primary);">Formação Complementar</h3>
+                <div class="card-container">
+                    <div class="card">
+                        <div class="card-header"><i class="fas fa-book-open"></i> Cursos de Extensão</div>
+                        <div class="card-body">
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-pen"></i> Escrita Acadêmica</span>
+                                <span>UNITINS (12h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-file-alt"></i> Português Instrumental</span>
+                                <span>UFNT (80h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-book"></i> Leitura Acadêmica</span>
+                                <span>UFNT (30h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-comments"></i> Análise de Discurso</span>
+                                <span>UFT (18h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-language"></i> English Practice</span>
+                                <span>UFNT (24h)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><i class="fas fa-chalkboard-teacher"></i> Minicursos</div>
+                        <div class="card-body">
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-user"></i> Reflexões sobre sujeito e cultura</span>
+                                <span>UFNT (10h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-gamepad"></i> Game-based learning</span>
+                                <span>UFNT (10h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-graduation-cap"></i> Ensino de língua portuguesa</span>
+                                <span>UFNT (10h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-globe-americas"></i> Variação linguística</span>
+                                <span>UFNT (10h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-virus"></i> Covitáforas-19</span>
+                                <span>UFNT (10h)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header"><i class="fas fa-microphone-alt"></i> Palestras e Outros</div>
+                        <div class="card-body">
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-user-graduate"></i> Agatha Christie e Albert Einstein</span>
+                                <span>PUC-Rio (2h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-tasks"></i> Didática e Planejamento</span>
+                                <span>Udemy (3h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-book-reader"></i> Revisão de Literatura ENEM</span>
+                                <span>Hotmart (3h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-comments"></i> Letras: Diálogos Linguísticos</span>
+                                <span>UFNT (40h)</span>
+                            </div>
+                            <div class="card-item">
+                                <span class="card-label"><i class="fas fa-comment-dots"></i> Interfaces Dialógicas</span>
+                                <span>GEDEALI/UFAL (4h)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-briefcase"></i> Experiência Profissional</h2>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Professor de Língua Portuguesa</div>
+                        <div class="experience-period">2024 - Atual</div>
+                    </div>
+                    <div class="experience-subtitle">Colégio Militar do Estado do Tocantins (CMTO/JHC)</div>
+                    <div class="experience-details">
+                        <div class="experience-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Carga Horária: 40h semanais</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Servidor Público</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Araguaína, TO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Professor de Língua Portuguesa</div>
+                        <div class="experience-period">2023 - 2023</div>
+                    </div>
+                    <div class="experience-subtitle">Educandário Cristo Rei (ECR)</div>
+                    <div class="experience-details">
+                        <div class="experience-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Carga Horária: 20h semanais</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>Ensino Fundamental</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Araguaína, TO</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">Residência Pedagógica</div>
+                        <div class="experience-period">2022 - 2023</div>
+                    </div>
+                    <div class="experience-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                    <div class="experience-details">
+                        <div class="experience-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Carga Horária: 6h semanais</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-user-check"></i>
+                            <span>Voluntário</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-book"></i>
+                            <span>Programa CAPES</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">PIBIC</div>
+                        <div class="experience-period">2022 - 2023</div>
+                    </div>
+                    <div class="experience-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                    <div class="experience-details">
+                        <div class="experience-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Carga Horária: 6h semanais</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Bolsista</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-medal"></i>
+                            <span>Pesquisa premiada</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">PIBID</div>
+                        <div class="experience-period">2020 - 2022</div>
+                    </div>
+                    <div class="experience-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                    <div class="experience-details">
+                        <div class="experience-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Carga Horária: 6h semanais</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-user-graduate"></i>
+                            <span>Bolsista</span>
+                        </div>
+                        <div class="experience-detail">
+                            <i class="fas fa-chalkboard"></i>
+                            <span>Iniciação à Docência</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-chart-bar"></i> Habilidades</h2>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-card">
+                        <h3 class="chart-title">Idiomas</h3>
+                        <canvas id="languagesChart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3 class="chart-title">Áreas de Conhecimento</h3>
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SEÇÃO DE PORTFÓLIO ATUALIZADA -->
+            <section id="portfolio" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-palette"></i> Portfólio de Design Gráfico</h2>
+                </div>
+                
+                <div class="portfolio-filter">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="branding">Identidade Visual</button>
+                    <button class="filter-btn" data-filter="editorial">Editorial</button>
+                    <button class="filter-btn" data-filter="digital">Design Digital</button>
+                    <button class="filter-btn" data-filter="illustration">Ilustração</button>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <!-- Projeto 1 -->
+                    <div class="portfolio-item" data-category="branding">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" alt="Identidade Visual Em Letras" class="portfolio-img">
+                            <span class="portfolio-category">Branding</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/1ABC123" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/1ABC123" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Respositório PPGDire</span>
+                            </a>
+                            <p class="portfolio-description">Logotipo desenvolvido para o Respositório...</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">UFNT</span>
+                                <span class="portfolio-tag">PPGDire</span>
+                                <span class="portfolio-tag">Respositório</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 2 -->
+                    <div class="portfolio-item" data-category="editorial">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1000" alt="Layout Editorial" class="portfolio-img">
+                            <span class="portfolio-category">Editorial</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/2DEF456" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/2DEF456" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Layout Editorial - Revista Acadêmica</span>
+                            </a>
+                            <p class="portfolio-description">Design editorial completo para a revista acadêmica "Letras & Contextos", publicação semestral do Departamento de Letras da UFNT.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">InDesign</span>
+                                <span class="portfolio-tag">Diagramação</span>
+                                <span class="portfolio-tag">Editorial</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 3 -->
+                    <div class="portfolio-item" data-category="digital">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" alt="Design de Interface" class="portfolio-img">
+                            <span class="portfolio-category">Design Digital</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/3GHI789" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/3GHI789" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Interface de Site Educacional</span>
+                            </a>
+                            <p class="portfolio-description">Design de interface para plataforma educacional "Aprenda Português", com foco em experiência do usuário para estudantes do ensino médio.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Figma</span>
+                                <span class="portfolio-tag">UI Design</span>
+                                <span class="portfolio-tag">UX</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 4 -->
+                    <div class="portfolio-item" data-category="illustration">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=1000" alt="Ilustração Literária" class="portfolio-img">
+                            <span class="portfolio-category">Ilustração</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/4JKL012" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/4JKL012" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Ilustração para Obra Literária</span>
+                            </a>
+                            <p class="portfolio-description">Série de ilustrações criadas para o livro "Contos do Cerrado", capturando a essência da cultura e paisagem tocantinense.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Procreate</span>
+                                <span class="portfolio-tag">Ilustração Digital</span>
+                                <span class="portfolio-tag">Arte</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 5 -->
+                    <div class="portfolio-item" data-category="branding">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1613909207035-6c8b6a1e5b0d?q=80&w=1000" alt="Logotipo Grupo de Estudos" class="portfolio-img">
+                            <span class="portfolio-category">Branding</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/5MNO345" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/5MNO345" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Logotipo - GETAD</span>
+                            </a>
+                            <p class="portfolio-description">Criação do logotipo para o Grupo de Estudos Tocantinense de Análise de Discurso (GETAD), representando a interdisciplinaridade do grupo.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Logo Design</span>
+                                <span class="portfolio-tag">Identidade Visual</span>
+                                <span class="portfolio-tag">Vetorização</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Projeto 6 -->
+                    <div class="portfolio-item" data-category="digital">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000" alt="Redes Sociais" class="portfolio-img">
+                            <span class="portfolio-category">Design Digital</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/6PQR678" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/6PQR678" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Conteúdo para Redes Sociais</span>
+                            </a>
+                            <p class="portfolio-description">Série de posts e stories para redes sociais do projeto "Literatura nas Escolas", com foco em engajamento de jovens leitores.</p>
+                            <div class="portfolio-tags">
+                                <span class="portfolio-tag">Social Media</span>
+                                <span class="portfolio-tag">Canva</span>
+                                <span class="portfolio-tag">Marketing</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="publications" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-book"></i> Produções Acadêmicas</h2>
+                </div>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Capítulos de Livros Publicados (3)</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="publication-item">
+                                <div class="publication-title">
+                                <a href="https://afnoticias.com.br/cidades/escritor-eliosmar-veloso-lanca-obra-literaria-com-autores-de-20-cidades-do-tocantins" target="_blank">Anuário de Poetas e Escritores do Tocantins 2022</a>
+                                </div>
+                                <div class="publication-title">Crônicas, Cordéis e Poesia</div>
+                                <div class="publication-details">Editora Veloso, 2022</div>
+                                <div class="publication-details">Páginas: 169-178</div>
+                            </div>
+                            <div class="publication-item">
+                                <div class="publication-title">
+                                <a href="https://online.fliphtml5.com/dozlr/morq/" target="_blank">Poesia na Escola</a>
+                                </div>
+                                <div class="publication-title">Capítulo de Poesias</div>
+                                <div class="publication-details">Palavra é Arte, 2022</div>
+                                <div class="publication-details">Páginas: 13-19</div>
+                            </div>
+                            <div class="publication-item">
+                                <div class="publication-title">
+                                <a href="https://drive.google.com/file/d/1gg0zuwEwWGLHZDCtUdZCFWSHqCdHJv0d/view?usp=drive_link" target="_blank">Narrações Pandêmicas e outras prosas</a>
+                                </div>
+                                <div class="publication-title">Crônicas</div>
+                                <div class="publication-details">Editora Universitária da UFNT, 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Trabalhos Completos em Anais (1)</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="publication-item">
+                                <div class="publication-title">
+                                <a href="https://www.even3.com.br/anais/xsidpidbdiadp2021/414925-o-desenvolvimento-docente-em-meio-a-pandemia--um-relato-de-experiencia-do-pibid-letras/" target="_blank">O Desenvolvimento Docente em Meio à Pandemia: Um Relato de Experiência do PIBID Letras</a>
+                                </div>
+                                <div class="publication-title">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                                <div class="publication-details">VIII Seminário Integrado de Ensino, Pesquisa, Extensão e Cultura (SIEPEC), 2022</div>
+                                <div class="publication-details">Coautor: T. V. S. Braga</div>
+                                <div class="publication-details">Páginas: 1-5</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Resumos em Anais (1)</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="publication-item">
+                                <div class="publication-title">A Constituição da Função-Autor em Produções Textuais de Alunos do Ensino Médio Público em Araguaína/TO</div>
+                                <div class="publication-details">Fazendo Ciência na Graduação. Araguaína/TO: Núcleo de Práticas de Linguagem, 2023. v. 1. p. 18-18.</div>
+                                <div class="publication-details">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Produção Técnica (3)</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="publication-item">
+                                <div class="publication-title">Residência Pedagógica - Letras UFNT</div>
+                                <div class="publication-details">Blog - Divulgação de Projeto (2022)</div>
+                            </div>
+                            <div class="publication-item">
+                                <div class="publication-title">PIBID Letras UFNT</div>
+                                <div class="publication-details">Site - Divulgação de Projeto (2021)</div>
+                            </div>
+                          <div class="publication-item">
+                               <div class="publication-title">
+                               <a href="https://emletras.com.br/" target="_blank">Em Letras</a>
+                               </div>
+                               <div class="publication-details">Site - Literatura Popular (2020)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <span>Demais Produções Técnicas (1)</span>
+                            <i class="fas fa-chevron-down accordion-icon"></i>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="publication-item">
+                                <div class="publication-title">
+                                <a href="https://sites.uft.edu.br/plataformaevento/d/praticas-de-leitura-na-universidade-entre-construcao-e-circulacao-de-sentidos" target="_blank">Práticas de leitura na universidade: Entre construção e circulação de sentidos</a>
+                                <div class="publication-title">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                                <div class="publication-details">Curso de curta duração ministrado/Extensão (2023)</div>
+                                <div class="publication-details">Coautores: João de Deus Leite, J. V. F. S. Silva</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="awards" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-trophy"></i> Prêmios e Títulos</h2>
+                </div>
+                
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="award-content">
+                        <div class="award-title">1º Lugar - Ciências Humanas, Sociais Aplicadas, Letras e Artes</div>
+                        <div class="award-subtitle">TEIA - II Seminário Integrado Ciência e Sociedade</div>
+                        <div class="award-details">
+                            <div class="award-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="award-detail">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Programa PIBIC UFNT</span>
+                            </div>
+                            <div class="award-detail">
+                                <i class="fas fa-file-alt"></i>
+                                <span>Pesquisa: Análise de Discurso</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="award-item">
+                    <div class="award-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="award-content">
+                        <div class="award-title">Aprovação em Concurso Público</div>
+                        <div class="award-subtitle">Professor Regente de Língua Portuguesa</div>
+                        <div class="award-details">
+                            <div class="award-detail">
+                                <i class="fas fa-calendar"></i>
+                                <span>2023</span>
+                            </div>
+                            <div class="award-detail">
+                                <i class="fas fa-university"></i>
+                                <span>Secretaria da Educação do Estado do Tocantins (SEDUC/TO)</span>
+                            </div>
+                            <div class="award-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Tocantins, Brasil</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="events" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-calendar-alt"></i> Participação em Eventos</h2>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2024</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">XV Semana Acadêmica do Curso de Letras: Linguística e Ensino</h3>
+                            <div class="timeline-subtitle">Seminário</div>
+                            <p>Apresentação: Experiências e Desafios para uma Educação Antirracista na Educação Básica</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Fazendo Ciência na Graduação</h3>
+                            <div class="timeline-subtitle">Seminário</div>
+                            <p>Apresentação: A Constituição da Função-Autor em Produções Textuais de Alunos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Seminário</h3>
+                            <div class="timeline-subtitle">Distribuição Sócio-Espacial das Escolas Estaduais em Araguaína/Tocantins e sua Relação com o IDEB</div>
+                            <p>Coautor: João de Deus Leite</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">II SIESCLL - Seminário Integrado de Estágios Supervisionados Curriculares em Línguas e Literaturas</h3>
+                            <div class="timeline-subtitle">Seminário</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">I Simpósio Internacional ENTRELETRAS UEMA/UFNT</h3>
+                            <div class="timeline-subtitle">Simpósio</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Seminário</h3>
+                            <div class="timeline-subtitle">O Desenvolvimento Docente em Meio à Pandemia: Um relato de experiência do PIBID Letras</div>
+                            <p>Coautor: T. V. S. Braga</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">II FLUA - Feira Literária da UFT de Araguaína: Travessias em Tempos de Incertezas</h3>
+                            <div class="timeline-subtitle">Feira Literária</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="research" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-users"></i> Grupo de Estudos</h2>
+                </div>
+                <div class="research-group">
+                    <div class="research-header">
+                        <h3 class="research-title">Grupo de Estudos Tocantinense de Análise de Discurso (GETAD)</h3>
+                        <div class="research-subtitle">Universidade Federal do Norte do Tocantins (UFNT)</div>
+                    </div>
+                    <div class="research-body">
+                        <p>Grupo de pesquisa certificado pelo CNPq desde 2022, dedicado ao estudo e aplicação da Análise de Discurso em diversas materialidades como textos pedagógicos, jornalísticos, midiáticos e jurídicos.</p>
+                        
+                        <div class="research-details">
+                            <div class="research-detail">
+                                <h4><i class="fas fa-calendar-check"></i> Informações Gerais</h4>
+                                <p><strong>Ano de formação:</strong> 2022</p>
+                                <p><strong>Data de certificação:</strong> 23/12/2022</p>
+                                <p><strong>Área predominante:</strong> Linguística, Letras e Artes</p>
+                            </div>
+                            
+                            <div class="research-detail">
+                                <h4><i class="fas fa-user-friends"></i> Liderança</h4>
+                                <p><strong>Líderes:</strong> João de Deus Leite e Janete Silva dos Santos</p>
+                                <p><strong>Membros pesquisadores:</strong> 5 doutores</p>
+                                <p><strong>Membros estudantes:</strong> 11 pesquisadores</p>
+                            </div>
+                            
+                            <div class="research-detail">
+                                <h4><i class="fas fa-book-open"></i> Linhas de Pesquisa</h4>
+                                <p><strong>Discurso, Ensino e Subjetividade</strong><br>7 estudantes, 4 pesquisadores</p>
+                                <p><strong>Discurso, Imagem, Virtual</strong><br>4 estudantes, 2 pesquisadores</p>
+                            </div>
+                            
+                            <div class="research-detail">
+                                <h4><i class="fas fa-user-graduate"></i> Minha Participação</h4>
+                                <p><strong>Status:</strong> Estudante de Mestrado Profissional</p>
+                                <p><strong>Data de inclusão:</strong> 23/12/2022</p>
+                                <p><strong>Linha de pesquisa:</strong> Discurso, Ensino e Subjetividade</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="contact" class="section" style="display: none;">
+                <div class="section-header">
+                    <h2 class="section-title"><i class="fas fa-envelope"></i> Entre em Contato</h2>
+                </div>
+                <div class="contact-form-container">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="entry.1635248108" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="entry.930640061" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" name="entry.1952993907" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="entry.963040897" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                        
+                        <!-- Mensagem de agradecimento POSICIONADA ABAIXO DO BOTÃO -->
+                        <div id="thankYouMessage" class="thank-you-message">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>Mensagem Enviada!</h3>
+                            <p>Obrigado pelo seu contato. Retornaremos em breve.</p>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="float-buttons">
+        <div class="float-btn back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="float-btn share-btn" id="shareBtn">
+            <i class="fas fa-share-alt"></i>
+        </div>
+    </div>
+    
+    <div class="share-options" id="shareOptions">
+        <div class="share-option linkedin" id="linkedinShare">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+        </div>
+        <div class="share-option twitter" id="twitterShare">
+            <i class="fab fa-twitter"></i>
+            <span>Twitter</span>
+        </div>
+        <div class="share-option facebook" id="facebookShare">
+            <i class="fab fa-facebook"></i>
+            <span>Facebook</span>
+        </div>
+        <div class="share-option whatsapp" id="whatsappShare">
+            <i class="fab fa-whatsapp"></i>
+            <span>WhatsApp</span>
+        </div>
+        <div class="share-option email" id="emailShare">
+            <i class="fas fa-envelope"></i>
+            <span>E-mail</span>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h3>Guilherme Silva Vanderley</h3>
+                <p>Professor de Língua Portuguesa e Literaturas</p>
+                <a href="http://lattes.cnpq.br/7963365405696203" class="lattes-link" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Acessar Currículo Lattes
+                </a>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/eiguilhermesilva/" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:guilherme.vanderley@professor.to.gov.br" class="social-link"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">Guilherme S. Vanderley © 2025 - Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Calculate age automatically (born on January 14, 2002)
+        function calculateAge() {
+            const birthDate = new Date(2002, 0, 14);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const monthDiff = today.getMonth() - birthDate.getMonth();
+            
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            
+            document.getElementById('age').textContent = age;
+        }
+        
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Verificar preferência do usuário
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+        } else if (savedTheme === 'light') {
+            body.classList.remove('dark-mode');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-mode');
+        }
+        
+        // Alternar tema
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Salvar preferência
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculateAge();
+            
+            const navItems = document.querySelectorAll('.nav-item');
+            const mobileMenuItems = document.querySelectorAll('.mobile-menu-item');
+            const sections = document.querySelectorAll('.section');
+            const mainNav = document.getElementById('mainNav');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const thankYouMessage = document.getElementById('thankYouMessage');
+            
+            // Função para mudar seção
+            function changeSection(target) {
+                navItems.forEach(nav => nav.classList.remove('active'));
+                mobileMenuItems.forEach(item => item.classList.remove('active'));
+                
+                document.querySelector(`.nav-item[data-target="${target}"]`).classList.add('active');
+                document.querySelector(`.mobile-menu-item[data-target="${target}"]`).classList.add('active');
+                
+                sections.forEach(section => {
+                    section.style.display = 'none';
+                    if (section.id === target) {
+                        section.style.display = 'block';
+                    }
+                });
+                
+                mobileMenu.classList.remove('active');
+            }
+            
+            // Event listeners para menu desktop
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    changeSection(target);
+                    
+                    if (window.innerWidth <= 768) {
+                        this.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            inline: 'center' 
+                        });
+                    }
+                });
+            });
+            
+            // Event listeners para menu mobile
+            mobileMenuItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const target = this.getAttribute('data-target');
+                    changeSection(target);
+                });
+            });
+            
+            // Botão hamburguer para menu mobile
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+            
+            // Accordion functionality
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const item = this.parentNode;
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Share button functionality
+            const shareBtn = document.getElementById('shareBtn');
+            const shareOptions = document.getElementById('shareOptions');
+            
+            shareBtn.addEventListener('click', function() {
+                shareOptions.classList.toggle('active');
+            });
+            
+            // Close share options when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!shareBtn.contains(event.target) && !shareOptions.contains(event.target)) {
+                    shareOptions.classList.remove('active');
+                }
+            });
+            
+            // Social sharing functions
+            const linkedinShare = document.getElementById('linkedinShare');
+            const twitterShare = document.getElementById('twitterShare');
+            const facebookShare = document.getElementById('facebookShare');
+            const whatsappShare = document.getElementById('whatsappShare');
+            const emailShare = document.getElementById('emailShare');
+            
+            const pageTitle = document.title;
+            const pageUrl = window.location.href;
+            const shareText = "Confira o currículo de Guilherme Silva Vanderley, Professor de Língua Portuguesa e Literaturas:";
+            
+            linkedinShare.addEventListener('click', function() {
+                const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}`;
+                window.open(url, '_blank', 'width=600,height=400');
+            });
+            
+            twitterShare.addEventListener('click', function() {
+                const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(pageUrl)}`;
+                window.open(url, '_blank', 'width=600,height=400');
+            });
+            
+            facebookShare.addEventListener('click', function() {
+                const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`;
+                window.open(url, '_blank', 'width=600,height=400');
+            });
+            
+            whatsappShare.addEventListener('click', function() {
+                const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + pageUrl)}`;
+                window.open(url, '_blank');
+            });
+            
+            emailShare.addEventListener('click', function() {
+                const subject = encodeURIComponent(pageTitle);
+                const body = encodeURIComponent(`${shareText}\n\n${pageUrl}`);
+                window.location.href = `mailto:?subject=${subject}&body=${body}`;
+            });
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Show/hide back to top button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTop.style.display = 'flex';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            });
+            
+            // Envio do formulário para Google Forms
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const form = e.target;
+                const formData = new FormData(form);
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                
+                // Esconder mensagem anterior se estiver visível
+                if (thankYouMessage.classList.contains('show')) {
+                    thankYouMessage.classList.remove('show');
+                }
+                
+                // Mostrar loading no botão
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                submitBtn.disabled = true;
+                
+                // URL do Google Forms
+                const url = 'https://docs.google.com/forms/d/e/1FAIpQLSdLUaqU9NtaYd87XBmohFeh1PQlEbjXs5AEC8G3A7SLQpHx5w/formResponse';
+                
+                // Enviar dados via POST
+                fetch(url, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: new URLSearchParams(formData).toString(),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                })
+                .then(() => {
+                    // Mostrar mensagem de sucesso
+                    thankYouMessage.classList.add('show');
+                    
+                    // Resetar formulário
+                    form.reset();
+                    
+                    // Ocultar mensagem após 5 segundos
+                    setTimeout(() => {
+                        thankYouMessage.classList.remove('show');
+                    }, 5000);
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar:', error);
+                    alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente mais tarde.');
+                })
+                .finally(() => {
+                    // Restaurar botão
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                });
+            });
+            
+            // Charts initialization
+            // Languages Chart
+            const languagesCtx = document.getElementById('languagesChart').getContext('2d');
+            const languagesChart = new Chart(languagesCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Compreensão', 'Fala', 'Leitura', 'Escrita'],
+                    datasets: [
+                        {
+                            label: 'Português',
+                            data: [100, 100, 100, 100],
+                            backgroundColor: 'rgba(58, 134, 255, 0.2)',
+                            borderColor: 'rgba(58, 134, 255, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(58, 134, 255, 1)'
+                        },
+                        {
+                            label: 'Inglês',
+                            data: [70, 30, 70, 30],
+                            backgroundColor: 'rgba(131, 56, 236, 0.2)',
+                            borderColor: 'rgba(131, 56, 236, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(131, 56, 236, 1)'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100
+                        }
+                    }
+                }
+            });
+            
+            // Skills Chart
+            const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+            const skillsChart = new Chart(skillsCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ensino de Português', 'Literatura', 'Escrita Acadêmica', 'Pesquisa', 'Tecnologia Educacional'],
+                    datasets: [{
+                        label: 'Nível de Proficiência',
+                        data: [95, 90, 85, 80, 70],
+                        backgroundColor: [
+                            'rgba(58, 134, 255, 0.7)',
+                            'rgba(131, 56, 236, 0.7)',
+                            'rgba(255, 0, 110, 0.7)',
+                            'rgba(106, 76, 147, 0.7)',
+                            'rgba(41, 128, 185, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(58, 134, 255, 1)',
+                            'rgba(131, 56, 236, 1)',
+                            'rgba(255, 0, 110, 1)',
+                            'rgba(106, 76, 147, 1)',
+                            'rgba(41, 128, 185, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    }
+                }
+            });
+            
+            // Funções para o portfólio
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            // Filtro para o portfólio
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover classe ativa de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Adicionar classe ativa ao botão clicado
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filtrar itens do portfólio
+                    portfolioItems.forEach(item => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
