@@ -1024,8 +1024,8 @@
             display: block;
         }
         
-        /* NOVOS ESTILOS PARA PORTFÓLIO */
-        .portfolio-container {
+        /* ESTILOS PARA PORTFÓLIO COM LINKS */
+        .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
@@ -1037,11 +1037,10 @@
             border-radius: var(--border-radius);
             overflow: hidden;
             transition: var(--transition);
-            border: 1px solid var(--light-gray);
+            border: 0px solid var(--light-gray);
             box-shadow: var(--shadow);
             position: relative;
-            cursor: pointer;
-            height: 300px;
+            height: 350px;
         }
         
         .portfolio-item:hover {
@@ -1049,109 +1048,117 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         
+        .portfolio-img-container {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
         .portfolio-img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-link-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(58, 134, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-link-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-link-btn {
+            background: var(--text-light);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .portfolio-link-btn:hover {
+            background: var(--secondary);
+            color: var(--text-light);
+            transform: translateY(-3px);
         }
         
         .portfolio-content {
             padding: 20px;
+            position: relative;
         }
         
         .portfolio-title {
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             color: var(--text-color);
             font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .portfolio-title-text {
+            flex: 1;
+            text-decoration: none; /* Removido o sublinhado */
         }
         
         .portfolio-category {
-            font-size: 0.9rem;
-            color: var(--primary);
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(58, 134, 255, 0.8);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.70rem;
             font-weight: 500;
+            z-index: 2;
         }
         
-        .portfolio-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
+        .portfolio-description {
+            margin-top: 0px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            line-height: 1.25;
         }
         
-        .modal-content {
-            max-width: 90%;
-            max-height: 90%;
-            background: var(--bg-section);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            position: relative;
-            padding: 30px;
-            width: 800px;
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .modal-close {
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray);
-            transition: var(--transition);
-        }
-        
-        .modal-close:hover {
-            color: var(--accent);
-        }
-        
-        .modal-body {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .modal-image {
-            max-width: 100%;
-            max-height: 400px;
-            object-fit: contain;
-            margin: 0 auto;
-            display: block;
-            border-radius: 8px;
-        }
-        
-        .modal-description {
-            line-height: 1.6;
-            color: var(--text-color);
-        }
+        /* Removido o estilo das tags de portfólio */
         
         .portfolio-filter {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 5px;
+            margin-bottom: 10px;
         }
         
         .filter-btn {
             padding: 8px 15px;
             background: var(--bg-card);
-            border: 1px solid var(--light-gray);
+            border: 0px solid var(--light-gray);
             border-radius: 30px;
             cursor: pointer;
             transition: var(--transition);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--text-color);
         }
         
@@ -1159,59 +1166,6 @@
             background: var(--primary);
             color: var(--text-light);
             border-color: var(--primary);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .grid-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            height: 250px;
-            cursor: pointer;
-        }
-        
-        .grid-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .grid-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .grid-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 15px;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .grid-item:hover .grid-overlay {
-            transform: translateY(0);
-        }
-        
-        .grid-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 1rem;
-        }
-        
-        .grid-category {
-            font-size: 0.85rem;
-            opacity: 0.8;
         }
         
         /* Responsividade */
@@ -1353,21 +1307,12 @@
                 height: 40px;
             }
             
-            .portfolio-container {
+            .portfolio-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
             
             .portfolio-item {
-                height: 270px;
-            }
-            
-            .portfolio-img {
-                height: 180px;
-            }
-            
-            .modal-content {
-                width: 95%;
-                padding: 15px;
+                height: 320px;
             }
         }
         
@@ -1783,7 +1728,7 @@
                 </div>
             </section>
             
-            <!-- NOVA SEÇÃO DE PORTFÓLIO -->
+            <!-- SEÇÃO DE PORTFÓLIO ATUALIZADA -->
             <section id="portfolio" class="section" style="display: none;">
                 <div class="section-header">
                     <h2 class="section-title"><i class="fas fa-palette"></i> Portfólio de Design Gráfico</h2>
@@ -1798,57 +1743,117 @@
                 </div>
                 
                 <div class="portfolio-grid">
-                    <!-- Item 1 -->
-                    <div class="grid-item" data-category="branding">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" alt="Identidade Visual Em Letras">
-                        <div class="grid-overlay">
-                            <div class="grid-title">Identidade Visual - Em Letras</div>
-                            <div class="grid-category">Branding</div>
+                    <!-- Projeto 1 -->
+                    <div class="portfolio-item" data-category="branding">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000" alt="Identidade Visual Em Letras" class="portfolio-img">
+                            <span class="portfolio-category">Branding</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/1ABC123" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/1ABC123" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Respositório PPGDire</span>
+                            </a>
+                            <p class="portfolio-description">Logotipo desenvolvido para o Respositório Institucional do Programa de Pós-Graduação em Direito da UFNT, com elementos que representam conhecimento e justiça.</p>
                         </div>
                     </div>
                     
-                    <!-- Item 2 -->
-                    <div class="grid-item" data-category="editorial">
-                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1000" alt="Layout Editorial">
-                        <div class="grid-overlay">
-                            <div class="grid-title">Layout Editorial - Revista Acadêmica</div>
-                            <div class="grid-category">Editorial</div>
+                    <!-- Projeto 2 -->
+                    <div class="portfolio-item" data-category="editorial">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=1000" alt="Layout Editorial" class="portfolio-img">
+                            <span class="portfolio-category">Editorial</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/2DEF456" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/2DEF456" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Layout Editorial - Revista Acadêmica</span>
+                            </a>
+                            <p class="portfolio-description">Design editorial completo para a revista acadêmica "Letras & Contextos", publicação semestral do Departamento de Letras da UFNT.</p>
                         </div>
                     </div>
                     
-                    <!-- Item 3 -->
-                    <div class="grid-item" data-category="digital">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" alt="Design de Interface">
-                        <div class="grid-overlay">
-                            <div class="grid-title">Interface de Site Educacional</div>
-                            <div class="grid-category">Design Digital</div>
+                    <!-- Projeto 3 -->
+                    <div class="portfolio-item" data-category="digital">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" alt="Design de Interface" class="portfolio-img">
+                            <span class="portfolio-category">Design Digital</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/3GHI789" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/3GHI789" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Interface de Site Educacional</span>
+                            </a>
+                            <p class="portfolio-description">Design de interface para plataforma educacional "Aprenda Português", com foco em experiência do usuário para estudantes do ensino médio.</p>
                         </div>
                     </div>
                     
-                    <!-- Item 4 -->
-                    <div class="grid-item" data-category="illustration">
-                        <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=1000" alt="Ilustração Literária">
-                        <div class="grid-overlay">
-                            <div class="grid-title">Ilustração para Obra Literária</div>
-                            <div class="grid-category">Ilustração</div>
+                    <!-- Projeto 4 -->
+                    <div class="portfolio-item" data-category="illustration">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=1000" alt="Ilustração Literária" class="portfolio-img">
+                            <span class="portfolio-category">Ilustração</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/4JKL012" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/4JKL012" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Ilustração para Obra Literária</span>
+                            </a>
+                            <p class="portfolio-description">Série de ilustrações criadas para o livro "Contos do Cerrado", capturando a essência da cultura e paisagem tocantinense.</p>
                         </div>
                     </div>
                     
-                    <!-- Item 5 -->
-                    <div class="grid-item" data-category="branding">
-                        <img src="https://images.unsplash.com/photo-1613909207035-6c8b6a1e5b0d?q=80&w=1000" alt="Logotipo Grupo de Estudos">
-                        <div class="grid-overlay">
-                            <div class="grid-title">Logotipo - GETAD</div>
-                            <div class="grid-category">Branding</div>
+                    <!-- Projeto 5 -->
+                    <div class="portfolio-item" data-category="branding">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1613909207035-6c8b6a1e5b0d?q=80&w=1000" alt="Logotipo Grupo de Estudos" class="portfolio-img">
+                            <span class="portfolio-category">Branding</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/5MNO345" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/5MNO345" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Logotipo - GETAD</span>
+                            </a>
+                            <p class="portfolio-description">Criação do logotipo para o Grupo de Estudos Tocantinense de Análise de Discurso (GETAD), representando a interdisciplinaridade do grupo.</p>
                         </div>
                     </div>
                     
-                    <!-- Item 6 -->
-                    <div class="grid-item" data-category="digital">
-                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000" alt="Redes Sociais">
-                        <div class="grid-overlay">
-                            <div class="grid-title">Conteúdo para Redes Sociais</div>
-                            <div class="grid-category">Design Digital</div>
+                    <!-- Projeto 6 -->
+                    <div class="portfolio-item" data-category="digital">
+                        <div class="portfolio-img-container">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000" alt="Redes Sociais" class="portfolio-img">
+                            <span class="portfolio-category">Design Digital</span>
+                            <div class="portfolio-link-overlay">
+                                <a href="https://drive.google.com/drive/folders/6PQR678" target="_blank" class="portfolio-link-btn">
+                                    <i class="fas fa-external-link-alt"></i> Ver Projeto Completo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="portfolio-content">
+                            <a href="https://drive.google.com/drive/folders/6PQR678" target="_blank" class="portfolio-title">
+                                <span class="portfolio-title-text">Conteúdo para Redes Sociais</span>
+                            </a>
+                            <p class="portfolio-description">Série de posts e stories para redes sociais do projeto "Literatura nas Escolas", com foco em engajamento de jovens leitores.</p>
                         </div>
                     </div>
                 </div>
@@ -2530,7 +2535,7 @@
             
             // Funções para o portfólio
             const filterButtons = document.querySelectorAll('.filter-btn');
-            const gridItems = document.querySelectorAll('.grid-item');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
             
             // Filtro para o portfólio
             filterButtons.forEach(button => {
@@ -2543,8 +2548,8 @@
                     
                     const filter = this.getAttribute('data-filter');
                     
-                    // Filtrar itens do grid
-                    gridItems.forEach(item => {
+                    // Filtrar itens do portfólio
+                    portfolioItems.forEach(item => {
                         if (filter === 'all' || item.getAttribute('data-category') === filter) {
                             item.style.display = 'block';
                         } else {
