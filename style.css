@@ -182,8 +182,3 @@ nav a,
 footer a {
   text-decoration: none;
 }
-
-nav a:hover,
-footer a:hover {
-  text-decoration: underline; /* opcional: sublinhar só no hover */
-}
