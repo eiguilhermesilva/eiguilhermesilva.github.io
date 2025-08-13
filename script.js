@@ -4,11 +4,11 @@ const API_KEY = "AIzaSyAnO6lMGiJ5UyT6zo7qW2NSGPiBGtMPl88";
 // IDs das pastas de cada disciplina
 const folders = {
     portugues: "1oCNLcON1a7WAtNcxPgQCpYz1G5YwghZZ",
-    ingles: "ID_PASTA_INGLES",
-    espanhol: "ID_PASTA_ESPANHOL",
-    libras: "ID_PASTA_LIBRAS",
-    artes: "ID_PASTA_ARTES",
-    edfisica: "ID_PASTA_EDFISICA"
+    ingles: "1ksd-52gkZx94eXx9UAG_RudDrPZHORk0",
+    espanhol: "1pCHeDYyW3DpXQ4-3cAkhR5s3A_A7vTMW",
+    libras: "1W_fMGLSquBinpH3vsKwG5kHmO1mF4OOD",
+    artes: "1NZXxMTdRTn6YusM5Ky-LJqS0qglLMO-K",
+    edfisica: "11-umz15mtLA_lqERIBkJ81PzXgbJG04v"
 };
 
 // Mostra a categoria selecionada
@@ -65,4 +65,5 @@ document.addEventListener("DOMContentLoaded", () => {
     loadFiles(folders.artes, "list-artes");
     loadFiles(folders.edfisica, "list-edfisica");
 });
+
 
