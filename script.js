@@ -3,7 +3,7 @@ const API_KEY = "AIzaSyAnO6lMGiJ5UyT6zo7qW2NSGPiBGtMPl88";
 
 // IDs das pastas de cada disciplina
 const folders = {
-    portugues: "ID_PASTA_PORTUGUES",
+    portugues: "1oCNLcON1a7WAtNcxPgQCpYz1G5YwghZZ",
     ingles: "ID_PASTA_INGLES",
     espanhol: "ID_PASTA_ESPANHOL",
     libras: "ID_PASTA_LIBRAS",
@@ -65,3 +65,4 @@ document.addEventListener("DOMContentLoaded", () => {
     loadFiles(folders.artes, "list-artes");
     loadFiles(folders.edfisica, "list-edfisica");
 });
+
