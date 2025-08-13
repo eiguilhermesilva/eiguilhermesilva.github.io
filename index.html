@@ -8,81 +8,65 @@
 </head>
 <body>
 
-    <!-- Cabeçalho -->
-    <header>
-        <div class="logo">
-            <img src="img/logo-sre.png" alt="Logo SRE">
-            <h1>Biblioteca Didática - SRE Araguaína</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#" class="active" onclick="showCategory('inicio')">Início</a></li>
-                <li><a href="#" onclick="showCategory('portugues')">Língua Portuguesa</a></li>
-                <li><a href="#" onclick="showCategory('ingles')">Língua Inglesa</a></li>
-                <li><a href="#" onclick="showCategory('espanhol')">Espanhol</a></li>
-                <li><a href="#" onclick="showCategory('libras')">Libras</a></li>
-                <li><a href="#" onclick="showCategory('artes')">Artes</a></li>
-                <li><a href="#" onclick="showCategory('edfisica')">Educação Física</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <div class="logo">
+        <img src="img/logo-sre.png" alt="Logo SRE">
+        <h1>Biblioteca Didática - SRE Araguaína</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#" class="active" onclick="showCategory('inicio')">Início</a></li>
+            <li><a href="#" onclick="showCategory('portugues')">Língua Portuguesa</a></li>
+            <li><a href="#" onclick="showCategory('ingles')">Língua Inglesa</a></li>
+            <li><a href="#" onclick="showCategory('espanhol')">Espanhol</a></li>
+            <li><a href="#" onclick="showCategory('libras')">Libras</a></li>
+            <li><a href="#" onclick="showCategory('artes')">Artes</a></li>
+            <li><a href="#" onclick="showCategory('edfisica')">Educação Física</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <!-- Conteúdo -->
-    <main>
-        <section id="inicio" class="content-section">
-            <h2>Bem-vindo à Biblioteca Didática</h2>
-            <p>Aqui você encontra materiais organizados por disciplina para apoiar as práticas pedagógicas nas escolas da SRE Araguaína.</p>
-        </section>
+<main>
+    <section id="inicio" class="content-section">
+        <h2>Bem-vindo à Biblioteca Didática</h2>
+        <p>Aqui você encontra materiais organizados por disciplina para apoiar as práticas pedagógicas nas escolas da SRE Araguaína.</p>
+    </section>
 
-        <section id="portugues" class="content-section hidden">
-            <h2>Língua Portuguesa</h2>
-            <ul class="file-list">
-                <li><a href="https://drive.google.com/drive/folders/EXEMPLO" target="_blank">📄 Gramática - Ensino Médio</a></li>
-                <li><a href="https://drive.google.com/drive/folders/EXEMPLO" target="_blank">📄 Produção Textual - Ensino Fundamental</a></li>
-            </ul>
-        </section>
+    <section id="portugues" class="content-section hidden">
+        <h2>Língua Portuguesa</h2>
+        <ul class="file-list" id="list-portugues"></ul>
+    </section>
 
-        <section id="ingles" class="content-section hidden">
-            <h2>Língua Inglesa</h2>
-            <ul class="file-list">
-                <li><a href="#">📄 Atividades de Leitura - Ensino Médio</a></li>
-            </ul>
-        </section>
+    <section id="ingles" class="content-section hidden">
+        <h2>Língua Inglesa</h2>
+        <ul class="file-list" id="list-ingles"></ul>
+    </section>
 
-        <section id="espanhol" class="content-section hidden">
-            <h2>Espanhol</h2>
-            <ul class="file-list">
-                <li><a href="#">📄 Vocabulário Básico - Ensino Fundamental</a></li>
-            </ul>
-        </section>
+    <section id="espanhol" class="content-section hidden">
+        <h2>Espanhol</h2>
+        <ul class="file-list" id="list-espanhol"></ul>
+    </section>
 
-        <section id="libras" class="content-section hidden">
-            <h2>Libras</h2>
-            <ul class="file-list">
-                <li><a href="#">📄 Apostila Introdução à Libras</a></li>
-            </ul>
-        </section>
+    <section id="libras" class="content-section hidden">
+        <h2>Libras</h2>
+        <ul class="file-list" id="list-libras"></ul>
+    </section>
 
-        <section id="artes" class="content-section hidden">
-            <h2>Artes</h2>
-            <ul class="file-list">
-                <li><a href="#">📄 História da Arte Brasileira</a></li>
-            </ul>
-        </section>
+    <section id="artes" class="content-section hidden">
+        <h2>Artes</h2>
+        <ul class="file-list" id="list-artes"></ul>
+    </section>
 
-        <section id="edfisica" class="content-section hidden">
-            <h2>Educação Física</h2>
-            <ul class="file-list">
-                <li><a href="#">📄 Jogos Cooperativos - Ensino Fundamental</a></li>
-            </ul>
-        </section>
-    </main>
+    <section id="edfisica" class="content-section hidden">
+        <h2>Educação Física</h2>
+        <ul class="file-list" id="list-edfisica"></ul>
+    </section>
+</main>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>© 2025 SRE Araguaína - Setor de Currículo, Formação e Avaliação</p>
-    </footer>
+<footer>
+    <p>© 2025 SRE Araguaína - Setor de Currículo, Formação e Avaliação</p>
+</footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
