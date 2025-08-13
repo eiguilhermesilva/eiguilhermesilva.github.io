@@ -138,3 +138,15 @@ body{
   color: #555;
 }
 
+footer a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+footer a:hover {
+    background: #003f7f;
+}
