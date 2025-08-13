@@ -1,0 +1,100 @@
+*{box-sizing:border-box}
+:root{
+  --brand:#004085;
+  --brand-2:#0062cc;
+  --bg:#f7f7f7;
+  --card:#ffffff;
+  --text:#1b1f24;
+  --muted:#6b7280;
+  --radius:16px;
+  --shadow:0 6px 20px rgba(0,0,0,.07);
+}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* Header */
+.site-header{
+  background: linear-gradient(90deg, var(--brand), #00346b);
+  color:#fff;
+  padding: 16px 20px;
+  position: sticky;
+  top:0;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+.logo{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo img{height:48px}
+.logo .brand h1{margin:0;font-size:1.25rem;font-weight:700}
+.logo .brand p{margin:0;font-size:.9rem;opacity:.9}
+
+/* Nav */
+.main-nav{
+  margin-top:12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.nav-link{
+  border:none;
+  background:var(--brand-2);
+  color:#fff;
+  padding:8px 12px;
+  border-radius:999px;
+  cursor:pointer;
+  transition: transform .05s ease, background .2s ease;
+}
+.nav-link:hover{transform: translateY(-1px)}
+.nav-link.active,.nav-link:focus{outline:none;background:#0056b3}
+
+/* Layout */
+.container{max-width:1000px;margin:24px auto;padding:0 16px}
+.content-section{
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow: var(--shadow);
+  padding:20px;
+  margin-bottom:20px;
+}
+.hidden{display:none}
+
+/* Section header */
+.section-header{display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.section-header h2{margin:4px 0}
+.search{
+  min-width:260px;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #e5e7eb;
+}
+
+/* File list */
+.file-list{list-style:none;margin:12px 0 0 0;padding:0}
+.file-list li{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px;border:1px solid #eef2f7;border-radius:12px;margin-bottom:10px}
+.file-list .meta{font-size:.9rem;color:var(--muted)}
+.file-list a{color:var(--brand);text-decoration:none}
+.file-list a:hover{text-decoration:underline}
+
+/* States */
+.loading,.empty,.error{
+  padding:16px;
+  border-radius:12px;
+  background:#f1f5f9;
+  color:#0f172a;
+  border:1px dashed #cbd5e1;
+  margin-top:12px;
+}
+
+.site-footer{
+  text-align:center;
+  color:#fff;
+  background:#002b57;
+  padding:18px;
+  margin-top:24px;
+}
+.tips{display:grid;gap:8px;margin-top:12px}
+.tips>div{background:#eef6ff;border-left:4px solid var(--brand-2);padding:10px;border-radius:8px}
