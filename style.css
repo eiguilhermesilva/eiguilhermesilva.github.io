@@ -138,27 +138,3 @@ body{
   color: #555;
 }
 
-}
-.sobre-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-.sobre-container h2 {
-    margin-top: 20px;
-    color: #0056b3;
-}
-footer a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 8px 15px;
-    background: #0056b3;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-footer a:hover {
-    background: #003f7f;
-}
