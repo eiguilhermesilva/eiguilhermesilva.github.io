@@ -1,13 +1,13 @@
 // Renomeie este arquivo para 'config.js' e preencha os valores.
 // IMPORTANTE: restrinja a sua API Key no Google Cloud (HTTP referrers) para o domínio do GitHub Pages.
 window.CONFIG = {
-  API_KEY: "SUA_API_KEY_AQUI",
+  API_KEY: "AIzaSyAnO6lMGiJ5UyT6zo7qW2NSGPiBGtMPl88",
   FOLDER_IDS: {
-    portugues: "ID_PASTA_PORTUGUES",
-    ingles: "ID_PASTA_INGLES",
-    espanhol: "ID_PASTA_ESPANHOL",
-    libras: "ID_PASTA_LIBRAS",
-    artes: "ID_PASTA_ARTES",
-    edfisica: "ID_PASTA_EDFISICA"
+    portugues: "1oCNLcON1a7WAtNcxPgQCpYz1G5YwghZZ",
+    ingles: "1ksd-52gkZx94eXx9UAG_RudDrPZHORk0",
+    espanhol: "1pCHeDYyW3DpXQ4-3cAkhR5s3A_A7vTMW",
+    libras: "1W_fMGLSquBinpH3vsKwG5kHmO1mF4OOD",
+    artes: "1NZXxMTdRTn6YusM5Ky-LJqS0qglLMO-K",
+    edfisica: "11-umz15mtLA_lqERIBkJ81PzXgbJG04v"
   }
 };
