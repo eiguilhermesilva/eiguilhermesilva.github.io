@@ -4,9 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Biblioteca Didática - SRE Araguaína</title>
-  <meta name="description" content="Repositório de materiais didáticos por disciplinas da SRE Araguaína/TO." />
+  <meta name="description" content="Biblioteca Didática da SRE Araguaína: Materiais pedagógicos gratuitos para professores de Linguagens (Português, Inglês, Espanhol, Libras, Artes e Educação Física). Atualização automática via Google Drive." />
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://www.googleapis.com" />
 </head>
 <body>
   <header class="site-header">
@@ -17,6 +18,7 @@
         <p>SRE Araguaína • Currículo, Formação e Avaliação</p>
       </div>
     </div>
+    <button class="menu-toggle" aria-label="Abrir menu">☰</button>
     <nav class="main-nav">
       <button class="nav-link active" data-target="inicio">Início</button>
       <button class="nav-link" data-target="portugues">Língua Portuguesa</button>
@@ -43,7 +45,6 @@
       </div>
     </section>
 
-    <!-- TEMPLATE DE DISCIPLINA -->
     <section id="portugues" class="content-section hidden">
       <header class="section-header">
         <h2>Língua Portuguesa</h2>
@@ -55,7 +56,7 @@
       <div class="error" id="error-portugues" hidden>Ocorreu um erro ao carregar os arquivos.</div>
     </section>
 
-    <section id="ingles" class="content-section hidden">
+ <section id="ingles" class="content-section hidden">
       <header class="section-header">
         <h2>Língua Inglesa</h2>
         <input id="search-ingles" class="search" type="search" placeholder="Buscar por nome..." aria-label="Buscar em Língua Inglesa" />
@@ -109,6 +110,7 @@
       <div class="empty" id="empty-edfisica" hidden>Nenhum arquivo disponível.</div>
       <div class="error" id="error-edfisica" hidden>Ocorreu um erro ao carregar os arquivos.</div>
     </section>
+    
   </main>
 
   <footer class="site-footer">
