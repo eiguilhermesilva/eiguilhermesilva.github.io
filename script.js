@@ -1,6 +1,4 @@
-/* Integração com Google Drive API (client-side)
-   Importa as configurações de window.CONFIG (API_KEY e FOLDER_IDS). */
-
+/* Integração com Google Drive API */
 const MIME_ICONS = [
   {match: "pdf", icon: "📕"},
   {match: "spreadsheet", icon: "📊"},
@@ -24,12 +22,17 @@ function showSection(id){
   document.querySelector(`.nav-link[data-target='${id}']`)?.classList.add("active");
 }
 
-document.addEventListener("click", (e)=>{
-  const btn = e.target.closest(".nav-link");
-  if(!btn) return;
-  const id = btn.getAttribute("data-target");
-  if(id) showSection(id);
-});
+// Menu Hamburguer
+function setupMenuToggle() {
+  const toggle = document.querySelector('.menu-toggle');
+  if (!toggle) return;
+  
+  toggle.addEventListener('click', () => {
+    const nav = document.querySelector('.main-nav');
+    nav.classList.toggle('expanded');
+    toggle.setAttribute('aria-expanded', nav.classList.contains('expanded'));
+  });
+}
 
 async function loadFiles(folderId, {listId, loadingId, emptyId, errorId, searchId}){
   const listEl = document.getElementById(listId);
@@ -40,10 +43,15 @@ async function loadFiles(folderId, {listId, loadingId, emptyId, errorId, searchI
 
   if(!folderId){ listEl.innerHTML = "<li>Configurar ID da pasta no config.js</li>"; return; }
 
+  // Mostra skeletons
+  listEl.innerHTML = `
+    <li class="skeleton-item"></li>
+    <li class="skeleton-item"></li>
+    <li class="skeleton-item"></li>
+  `;
   loadingEl.hidden = false;
   emptyEl.hidden = true;
   errorEl.hidden = true;
-  listEl.innerHTML = "";
 
   const fields = "files(id,name,mimeType,modifiedTime,webViewLink,webContentLink,iconLink)";
   const url = `https://www.googleapis.com/drive/v3/files?q='${encodeURIComponent(folderId)}'+in+parents+and+trashed=false&orderBy=modifiedTime%20desc&fields=${fields}&key=${encodeURIComponent(window.CONFIG.API_KEY)}`;
@@ -74,7 +82,6 @@ async function loadFiles(folderId, {listId, loadingId, emptyId, errorId, searchI
 
     render(files);
 
-    // Filtro por busca
     if(searchEl){
       searchEl.addEventListener("input", ()=>{
         const q = searchEl.value.trim().toLowerCase();
@@ -96,7 +103,8 @@ async function loadFiles(folderId, {listId, loadingId, emptyId, errorId, searchI
 
 // Inicialização
 document.addEventListener("DOMContentLoaded", ()=>{
-  // Seções: carregar automaticamente
+  setupMenuToggle();
+  
   const F = window.CONFIG.FOLDER_IDS;
   loadFiles(F.portugues, {listId:"list-portugues", loadingId:"loading-portugues", emptyId:"empty-portugues", errorId:"error-portugues", searchId:"search-portugues"});
   loadFiles(F.ingles, {listId:"list-ingles", loadingId:"loading-ingles", emptyId:"empty-ingles", errorId:"error-ingles", searchId:"search-ingles"});
@@ -105,6 +113,5 @@ document.addEventListener("DOMContentLoaded", ()=>{
   loadFiles(F.artes, {listId:"list-artes", loadingId:"loading-artes", emptyId:"empty-artes", errorId:"error-artes", searchId:"search-artes"});
   loadFiles(F.edfisica, {listId:"list-edfisica", loadingId:"loading-edfisica", emptyId:"empty-edfisica", errorId:"error-edfisica", searchId:"search-edfisica"});
 
-  // Seção inicial
   showSection("inicio");
 });
