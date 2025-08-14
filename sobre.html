@@ -7,6 +7,7 @@
   <meta name="description" content="Conheça a equipe de Currículo, Formação e Avaliação da SRE Araguaína responsável pela Biblioteca Didática de Linguagens." />
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://www.googleapis.com" />
 </head>
 <body>
   <header class="site-header">
@@ -19,14 +20,14 @@
     </div>
     <button class="menu-toggle" aria-label="Abrir menu">☰</button>
     <nav class="main-nav">
-      <a class="nav-link" href="index.html">Início</a>
-      <a class="nav-link" href="index.html" onclick="event.preventDefault(); window.location='index.html#portugues'">Língua Portuguesa</a>
-      <a class="nav-link" href="index.html" onclick="event.preventDefault(); window.location='index.html#ingles'">Língua Inglesa</a>
-      <a class="nav-link" href="index.html" onclick="event.preventDefault(); window.location='index.html#espanhol'">Espanhol</a>
-      <a class="nav-link" href="index.html" onclick="event.preventDefault(); window.location='index.html#libras'">Libras</a>
-      <a class="nav-link" href="index.html" onclick="event.preventDefault(); window.location='index.html#artes'">Artes</a>
-      <a class="nav-link" href="index.html" onclick="event.preventDefault(); window.location='index.html#edfisica'">Educação Física</a>
-      <a class="nav-link active" href="sobre.html">Sobre Nós</a>
+      <button class="nav-link" data-target="inicio" onclick="window.location.href='index.html'">Início</button>
+      <button class="nav-link" data-target="portugues" onclick="window.location.href='index.html#portugues'">Língua Portuguesa</button>
+      <button class="nav-link" data-target="ingles" onclick="window.location.href='index.html#ingles'">Língua Inglesa</button>
+      <button class="nav-link" data-target="espanhol" onclick="window.location.href='index.html#espanhol'">Espanhol</button>
+      <button class="nav-link" data-target="libras" onclick="window.location.href='index.html#libras'">Libras</button>
+      <button class="nav-link" data-target="artes" onclick="window.location.href='index.html#artes'">Artes</button>
+      <button class="nav-link" data-target="edfisica" onclick="window.location.href='index.html#edfisica'">Educação Física</button>
+      <button class="nav-link active">Sobre Nós</button>
     </nav>
   </header>
 
@@ -52,7 +53,23 @@
           </div>
         </article>
 
-        <!-- ... (outros membros da equipe) ... -->
+        <article class="member-card">
+          <img src="img/team/andreia.jpg" alt="Andreia Nascimento do Carmo Dias" loading="lazy" />
+          <div class="member-info">
+            <h3>Andreia Nascimento do Carmo Dias</h3>
+            <p class="role">Professora de Língua Portuguesa</p>
+            <p>Foco em formação continuada de professores e valorização da leitura e escrita no ambiente escolar.</p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <img src="img/team/joao.jpg" alt="João Victor Ferreira" loading="lazy" />
+          <div class="member-info">
+            <h3>João Victor Ferreira</h3>
+            <p class="role">Professor de Língua Portuguesa</p>
+            <p>Integração entre teoria e prática pedagógica para potencializar aprendizagens significativas.</p>
+          </div>
+        </article>
       </div>
     </section>
   </main>
