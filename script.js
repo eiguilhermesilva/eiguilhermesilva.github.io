@@ -105,13 +105,20 @@ async function loadFiles(folderId, {listId, loadingId, emptyId, errorId, searchI
 document.addEventListener("DOMContentLoaded", ()=>{
   setupMenuToggle();
   
-  const F = window.CONFIG.FOLDER_IDS;
-  loadFiles(F.portugues, {listId:"list-portugues", loadingId:"loading-portugues", emptyId:"empty-portugues", errorId:"error-portugues", searchId:"search-portugues"});
-  loadFiles(F.ingles, {listId:"list-ingles", loadingId:"loading-ingles", emptyId:"empty-ingles", errorId:"error-ingles", searchId:"search-ingles"});
-  loadFiles(F.espanhol, {listId:"list-espanhol", loadingId:"loading-espanhol", emptyId:"empty-espanhol", errorId:"error-espanhol", searchId:"search-espanhol"});
-  loadFiles(F.libras, {listId:"list-libras", loadingId:"loading-libras", emptyId:"empty-libras", errorId:"error-libras", searchId:"search-libras"});
-  loadFiles(F.artes, {listId:"list-artes", loadingId:"loading-artes", emptyId:"empty-artes", errorId:"error-artes", searchId:"search-artes"});
-  loadFiles(F.edfisica, {listId:"list-edfisica", loadingId:"loading-edfisica", emptyId:"empty-edfisica", errorId:"error-edfisica", searchId:"search-edfisica"});
+  // Carrega arquivos apenas na página principal
+  if(document.getElementById('list-portugues')){
+    const F = window.CONFIG.FOLDER_IDS;
+    loadFiles(F.portugues, {listId:"list-portugues", loadingId:"loading-portugues", emptyId:"empty-portugues", errorId:"error-portugues", searchId:"search-portugues"});
+    loadFiles(F.ingles, {listId:"list-ingles", loadingId:"loading-ingles", emptyId:"empty-ingles", errorId:"error-ingles", searchId:"search-ingles"});
+    loadFiles(F.espanhol, {listId:"list-espanhol", loadingId:"loading-espanhol", emptyId:"empty-espanhol", errorId:"error-espanhol", searchId:"search-espanhol"});
+    loadFiles(F.libras, {listId:"list-libras", loadingId:"loading-libras", emptyId:"empty-libras", errorId:"error-libras", searchId:"search-libras"});
+    loadFiles(F.artes, {listId:"list-artes", loadingId:"loading-artes", emptyId:"empty-artes", errorId:"error-artes", searchId:"search-artes"});
+    loadFiles(F.edfisica, {listId:"list-edfisica", loadingId:"loading-edfisica", emptyId:"empty-edfisica", errorId:"error-edfisica", searchId:"search-edfisica"});
+  }
 
-  showSection("inicio");
+  // Ativa seção atual
+  const currentPage = window.location.pathname.split('/').pop();
+  if(currentPage === 'sobre.html'){
+    document.querySelector('.nav-link[href="sobre.html"]').classList.add('active');
+  }
 });
