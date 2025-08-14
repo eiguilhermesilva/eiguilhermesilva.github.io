@@ -16,10 +16,21 @@ function iconForMime(mime){
 }
 
 function showSection(id){
+  // Verifica se a seção existe (para evitar erros na página Sobre Nós)
+  const section = document.getElementById(id);
+  if(!section) return;
+  
   document.querySelectorAll(".content-section").forEach(s=>s.classList.add("hidden"));
-  document.getElementById(id).classList.remove("hidden");
-  document.querySelectorAll(".nav-link").forEach(b=>b.classList.remove("active"));
-  document.querySelector(`.nav-link[data-target='${id}']`)?.classList.add("active");
+  section.classList.remove("hidden");
+  
+  // Atualiza botões ativos
+  document.querySelectorAll(".nav-link").forEach(b=>{
+    b.classList.remove("active");
+    if(b.getAttribute('data-target') === id || 
+       (id === 'inicio' && b.getAttribute('href') === 'index.html')) {
+      b.classList.add("active");
+    }
+  });
 }
 
 // Menu Hamburguer
@@ -31,6 +42,28 @@ function setupMenuToggle() {
     const nav = document.querySelector('.main-nav');
     nav.classList.toggle('expanded');
     toggle.setAttribute('aria-expanded', nav.classList.contains('expanded'));
+  });
+}
+
+// Função para configurar navegação
+function setupNavigation() {
+  document.addEventListener("click", (e)=>{
+    // Navegação por botões com data-target
+    const btn = e.target.closest(".nav-link[data-target]");
+    if(btn) {
+      e.preventDefault();
+      showSection(btn.getAttribute('data-target'));
+      return;
+    }
+    
+    // Navegação para seções específicas
+    const anchorBtn = e.target.closest(".nav-link[href^='index.html#']");
+    if(anchorBtn) {
+      e.preventDefault();
+      const targetId = anchorBtn.getAttribute('href').split('#')[1];
+      window.location.href = `index.html#${targetId}`;
+      showSection(targetId);
+    }
   });
 }
 
@@ -104,14 +137,25 @@ async function loadFiles(folderId, {listId, loadingId, emptyId, errorId, searchI
 // Inicialização
 document.addEventListener("DOMContentLoaded", ()=>{
   setupMenuToggle();
+  setupNavigation();
   
-  const F = window.CONFIG.FOLDER_IDS;
-  loadFiles(F.portugues, {listId:"list-portugues", loadingId:"loading-portugues", emptyId:"empty-portugues", errorId:"error-portugues", searchId:"search-portugues"});
-  loadFiles(F.ingles, {listId:"list-ingles", loadingId:"loading-ingles", emptyId:"empty-ingles", errorId:"error-ingles", searchId:"search-ingles"});
-  loadFiles(F.espanhol, {listId:"list-espanhol", loadingId:"loading-espanhol", emptyId:"empty-espanhol", errorId:"error-espanhol", searchId:"search-espanhol"});
-  loadFiles(F.libras, {listId:"list-libras", loadingId:"loading-libras", emptyId:"empty-libras", errorId:"error-libras", searchId:"search-libras"});
-  loadFiles(F.artes, {listId:"list-artes", loadingId:"loading-artes", emptyId:"empty-artes", errorId:"error-artes", searchId:"search-artes"});
-  loadFiles(F.edfisica, {listId:"list-edfisica", loadingId:"loading-edfisica", emptyId:"empty-edfisica", errorId:"error-edfisica", searchId:"search-edfisica"});
+  // Verifica se está na página principal
+  if(document.getElementById('list-portugues')){
+    const F = window.CONFIG.FOLDER_IDS;
+    loadFiles(F.portugues, {listId:"list-portugues", loadingId:"loading-portugues", emptyId:"empty-portugues", errorId:"error-portugues", searchId:"search-portugues"});
+    loadFiles(F.ingles, {listId:"list-ingles", loadingId:"loading-ingles", emptyId:"empty-ingles", errorId:"error-ingles", searchId:"search-ingles"});
+    loadFiles(F.espanhol, {listId:"list-espanhol", loadingId:"loading-espanhol", emptyId:"empty-espanhol", errorId:"error-espanhol", searchId:"search-espanhol"});
+    loadFiles(F.libras, {listId:"list-libras", loadingId:"loading-libras", emptyId:"empty-libras", errorId:"error-libras", searchId:"search-libras"});
+    loadFiles(F.artes, {listId:"list-artes", loadingId:"loading-artes", emptyId:"empty-artes", errorId:"error-artes", searchId:"search-artes"});
+    loadFiles(F.edfisica, {listId:"list-edfisica", loadingId:"loading-edfisica", emptyId:"empty-edfisica", errorId:"error-edfisica", searchId:"search-edfisica"});
 
-  showSection("inicio");
+    // Mostra seção inicial ou a partir do hash da URL
+    const hash = window.location.hash.substring(1);
+    showSection(hash || 'inicio');
+  }
+  
+  // Ativa link ativo na página Sobre Nós
+  if(window.location.pathname.includes('sobre.html')){
+    document.querySelector('.nav-link[href="sobre.html"]').classList.add('active');
+  }
 });
