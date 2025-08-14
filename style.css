@@ -3,25 +3,45 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+  background-color: #f0f4f8;
   color: #333;
   line-height: 1.6;
 }
 
+/* === Links e botões === */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+button, .btn-nav, nav.main-nav a.nav-link, footer a {
+  display: inline-block;
+  padding: 10px 22px;
+  background-color: #007acc;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover, .btn-nav:hover, nav.main-nav a.nav-link:hover, footer a:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
 /* === Header / Navbar === */
 header.site-header {
-  background: #0056b3;
+  background: #005fa3;
   color: #fff;
-  padding: 1rem;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 header .logo {
@@ -31,159 +51,140 @@ header .logo {
 }
 
 header .logo img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 header .brand h1 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 header .brand p {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  color: #e0e0e0;
 }
 
 nav.main-nav {
-  margin-top: 10px;
   display: flex;
+  gap: 12px;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
-nav.main-nav a.nav-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #2a7ae4;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-nav.main-nav a.nav-link:hover,
-nav.main-nav a.nav-link.active {
-  background-color: #1d5fbf;
-}
-
-/* === Conteúdo principal === */
+/* === Seções principais === */
 .container {
   max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
 .content-section {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .content-section h2 {
-  color: #0056b3;
+  color: #007acc;
   margin-bottom: 15px;
+  font-size: 1.6rem;
 }
 
-/* === Cards de equipe / página Sobre Nós === */
+/* === Cards da equipe === */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
 .member-card {
   display: flex;
-  gap: 14px;
-  padding: 14px;
-  border: 1px solid #eef2f7;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
   border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .member-card img {
-  width: 84px;
-  height: 84px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  flex: 0 0 84px;
+  margin-bottom: 15px;
 }
 
 .member-info h3 {
-  margin: 0 0 4px 0;
+  margin-bottom: 6px;
+  color: #007acc;
 }
 
 .member-info .role {
-  margin: 0 0 8px 0;
   color: #555;
-  font-size: 0.95rem;
-}
-
-/* === Botões / links do site === */
-.btn-nav,
-footer a,
-nav.main-nav a.nav-link {
-  text-decoration: none;
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #2a7ae4;
-  color: #fff;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.btn-nav:hover,
-footer a:hover,
-nav.main-nav a.nav-link:hover {
-  background-color: #1d5fbf;
+  font-weight: 500;
+  margin-bottom: 8px;
 }
 
 /* === Footer === */
 footer.site-footer {
-  background: #222;
+  background-color: #003f6b;
   color: #fff;
   text-align: center;
-  padding: 1rem;
-  margin-top: 40px;
+  padding: 20px 10px;
+  margin-top: 50px;
 }
 
 footer.site-footer a {
-  margin: 0 5px;
-  text-decoration: none;
+  margin: 0 8px;
+  font-weight: 600;
 }
 
-/* === Tabelas (index.html / PDFs) === */
+/* === Tabelas === */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-table th,
-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+table th, table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
   text-align: left;
 }
 
 table th {
-  background-color: #0056b3;
+  background-color: #007acc;
   color: #fff;
 }
 
 /* === Responsividade === */
 @media screen and (max-width: 768px) {
-  .member-card {
+  header.site-header {
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .member-card img {
-    margin-bottom: 10px;
+    align-items: flex-start;
+    gap: 15px;
   }
 
   nav.main-nav {
-    flex-direction: column;
-    gap: 5px;
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .member-card img {
+    width: 100px;
+    height: 100px;
   }
 }
